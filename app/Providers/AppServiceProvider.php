@@ -33,6 +33,21 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
         Cashier::calculateTaxes();
 
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                \Log::info('User authenticated', ['user_id' => $user->id]);
+                (new MigrateSessionCart())->migrate(
+                    CartFactory::make(),
+                    $user->cart ?: $user->cart()->firstOrCreate()
+                );
+
+                return $user;
+            }
+            \Log::warning('User authentication failed', ['email' => $request->email]);
+        });
+
         Blade::stringable(function (Money $money){
             $currencies = new ISOCurrencies();
             $numberFormatter = new \NumberFormatter('en_US', \NumberFormatter::CURRENCY);
