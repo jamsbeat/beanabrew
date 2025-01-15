@@ -30,7 +30,7 @@ class Product extends Component
 
         //$this->dispatch('cartUpdated');
 
-        //$this->dispatch('productAddedToCart');
+        $this->dispatch('productAddedToCart');
     }
 
     public function getProductProperty()

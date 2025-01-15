@@ -13,6 +13,9 @@ Route::view('/login', 'auth.login')->name('login');
 Route::view('/register', 'auth.register')->name('register');
 Route::get('/about', \App\Livewire\AboutPage::class)->name('about');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile', function () {
+    return view('profile.show');
+})->name('profile.show');
 
 //Route::middleware([
 //    'auth:sanctum',
