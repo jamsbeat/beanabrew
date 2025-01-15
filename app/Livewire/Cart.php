@@ -32,8 +32,11 @@ class Cart extends Component
 
     public function increment($itemId)
     {
-        return CartFactory::make()->items()->find($itemId)->increment('quantity');
-
+        $item = CartFactory::make()->items()->find($itemId);
+        if ($item->quantity >= 1) {
+            $item->increment('quantity');
+            $this->dispatch('productAddedToCart');
+        }
     }
 
     public function decrement($itemId)
