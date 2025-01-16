@@ -1,7 +1,7 @@
 <div>
     @if (request()->is('/'))
             <div class="grid h-screen object-center overflow-hidden content-center bg-black">
-                <img src="https://wallpapers.com/images/hd/coffee-beans-with-leaves-xjack9rx9v60yf8l.jpg" class="w-screen blur-sm">
+                <img src="https://wallpapers.com/images/hd/coffee-beans-with-leaves-xjack9rx9v60yf8l.jpg">
             </div>
             <div class="absolute inset-0">
             <h3 id="bean-brew" class="pr-8 absolute text-white text-8xl z-50 bottom-[250px] left-[90px] border-r-[6px] border-white">

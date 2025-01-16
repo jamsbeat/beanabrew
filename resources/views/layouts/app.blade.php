@@ -23,7 +23,7 @@
 
     <body class="font-sans antialiased bg-light-gray">
 
-        <div class="min-h-screen bg-light-gray">
+            <div class="min-h-screen bg-light-gray">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -36,13 +36,11 @@
             @endif
 
             <!-- Page Content -->
-            <div class="h-screen">
+            <div class="h-auto">
                 <main class=" mx-auto max-w-7xl py-4 sm:px-6 lg:px-8">
                     {{ $slot }}
                 </main>
             </div>
-
-
         </div>
         <div>
             @livewire('footer-menu')

@@ -6,7 +6,7 @@
         transition duration-300 ease focus:outline-none focus:border-warm-brown shadow-sm focus:shadow"
         type="text" wire:model.live="search">
     </div>
-    <div class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-6 p-6">
         @foreach($this->products as $product)
             <a href="{{ route('product', $product) }}"
                wire:key="{{ $product->id }}"

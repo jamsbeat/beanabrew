@@ -28,7 +28,7 @@ class Product extends Component
             variantId: $this->variant
         );
 
-        //$this->dispatch('cartUpdated');
+        $this->dispatch('cartUpdated');
 
         $this->dispatch('productAddedToCart');
     }
